@@ -4,9 +4,18 @@ import scraper
 import csv_util
 import xlsx_util
 
+# Create the output folder if it does not exist
 def create_output_folder(folder: str) -> None:
     if not os.path.exists(folder):
         os.makedirs(folder)
+
+# Get the first CSV or XLSX file from the input folder
+def get_input_file(folder: str) -> None:
+    files = [f for f in os.listdir(folder) if f.lower().endswith(('.csv', '.xlsx'))]
+    if not files:
+        print(f"No input files found in {folder}. Please add a CSV or XLSX file.")
+        return None
+    return os.path.join(folder, files[0])
 
 def read_input_file(input_file: str) -> list[dict]:
     extension = os.path.splitext(input_file)[1].lower()
@@ -31,12 +40,17 @@ def write_output_file(output_file: str, data: list[dict]) -> None:
 
 
 def main():
-    input_file = "input/input.xlsx"
+    input_folder = "input/"
     output_folder = "output/"
-    timestamp = datetime.today().strftime("%Y-%m-%d %H-%M-%S")
-    output_file = os.path.join(output_folder, f"output {timestamp}{os.path.splitext(input_file)[1]}")
-
     create_output_folder(output_folder)
+
+    input_file = get_input_file(input_folder)
+    if not input_file:
+        return
+
+    extension = os.path.splitext(input_file)[1].lower()
+    timestamp = datetime.today().strftime("%Y-%m-%d %H-%M-%S")
+    output_file = os.path.join(output_folder, f"output {timestamp}{extension}")
     
     input_data = read_input_file(input_file)
     if not input_data:
