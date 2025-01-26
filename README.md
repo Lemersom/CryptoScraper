@@ -1,5 +1,8 @@
 # CryptoScraper
 
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Lemersom/CryptoScraper/blob/main/README.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/Lemersom/CryptoScraper/blob/main/README.pt-br.md)
+
 CryptoScraper is a Python-based tool that fetches cryptocurrency data using Yahoo Finance. It allows users to provide an input file (CSV or XLSX) containing cryptocurrency symbols, scrape relevant data like prices and market cap, and output the results in the same format as the input file.
 
 ## Technologies
