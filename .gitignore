@@ -8,5 +8,8 @@ env.bak/
 venv.bak/
 
 __pycache__/
+
+# PyInstaller
 build/
 dist/
+CryptoScraper.spec
