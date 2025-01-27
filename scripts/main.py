@@ -15,7 +15,7 @@ def create_output_folder(folder: str) -> None:
         os.makedirs(folder)
 
 
-def get_input_file(folder: str) -> None:
+def get_input_file(folder: str) -> str | None:
     """
     Retrieves the first CSV or XLSX file found in the specified folder.
 
